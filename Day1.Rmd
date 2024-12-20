@@ -1,0 +1,38 @@
+---
+title: "Zurell Tutorial"
+output: html_notebook
+---
+
+
+```{r libraries}
+library(data.table)
+library(raster)
+library(randomForest)
+library(lattice)
+library(RColorBrewer)
+library(PresenceAbsence)
+library(geodata)
+```
+
+
+```{r}
+avi_dat <- read.table("Data/Data_SwissBreedingBirds.csv", 
+                      header = T, 
+                      sep = ",")
+summary(avi_dat)
+```
+
+
+```{r}
+avi_cols <- c('Turdus_torquatus', 'bio_5', 'bio_2', 'bio_14', 'std', 'rad', 'blockCV_tile')
+
+avi_df <- data.frame(avi_dat)[avi_cols]
+
+summary(avi_df)
+```
+
+
+```{r}
+bio_curr <- worldclim_country(country = "Switzerland", var='bio', res=0.5, lon=5.5, lat=45.5, path='Data', download=T)[[c(2,5,1,4)]]
+```
+
