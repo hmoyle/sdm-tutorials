@@ -3,6 +3,7 @@ title: "Zurell Tutorial"
 output: html_notebook
 ---
 
+tutorial: https://damariszurell.github.io/SDM-Intro
 
 ```{r libraries}
 library(data.table)
